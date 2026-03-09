@@ -2,8 +2,8 @@ name: Daily Random Commit
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # runs daily at midnight UTC
-  workflow_dispatch:      # allows manual trigger
+    - cron: "0 0 * * *"   
+  workflow_dispatch:      
 
 jobs:
   commit:
