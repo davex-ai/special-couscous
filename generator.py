@@ -6,6 +6,14 @@ import numpy as np
 
 now = datetime.datetime.now()
 
+hour = datetime.datetime.now().hour
+
+# midnight run always generates
+if hour != 0:
+    if random.random() < 0.6:
+        print("Skipping generation this run.")
+        exit()
+
 # ---------- Ensure directories exist ----------
 dirs = [
     "algorithms",
