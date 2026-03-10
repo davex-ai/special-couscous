@@ -9,7 +9,7 @@ now = datetime.datetime.now()
 hour = datetime.datetime.now().hour
 
 if hour != 0:
-    if random.random() < 0.6:
+    if random.random() < 0.1:
         print("Skipping generation this run.")
         exit()
 
