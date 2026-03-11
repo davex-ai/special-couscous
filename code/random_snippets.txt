@@ -13,3 +13,6 @@ fmt.Println("chaos")
 
 # javascript
 console.log('chaos')
+
+# python
+print('chaos')
