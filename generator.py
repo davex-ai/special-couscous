@@ -131,6 +131,34 @@ def generate_ascii():
         f.write(f"\n# {now}\n")
         f.write(random.choice(ascii_shapes))
 
+latest_ascii = ""
+
+if os.path.exists("ascii/art.txt"):
+    with open("ascii/art.txt") as f:
+        blocks = f.read().split("#")
+        latest_ascii = blocks[-1] if blocks else ""
+
+def weight_heatmap():
+
+    path = "neural_networks/weights.npy"
+    if not os.path.exists(path):
+        return ""
+
+    weights = np.load(path)
+
+    chars = " .:-=+*#%@"
+
+    heatmap = ""
+
+    for row in weights:
+        for v in row:
+            idx = int((v + 3) / 6 * (len(chars)-1))
+            idx = max(0, min(idx, len(chars)-1))
+            heatmap += chars[idx]
+        heatmap += "\n"
+
+    return heatmap
+
 
 # ---------- ASCII GRAPH ----------
 def generate_ascii_graph():
@@ -317,12 +345,16 @@ Last oracle cycle: **{now}**
 
 
 # ---------- RUN EVERYTHING ----------
-generate_ascii()
-generate_ascii_graph()
-generate_dataset()
-generate_formula()
-generate_algorithm()
-generate_code()
-generate_architecture()
-evolve_weights()
-update_dashboard()
+generators = [
+    generate_ascii,
+    generate_ascii_graph,
+    generate_dataset,
+    generate_formula,
+    generate_algorithm,
+    generate_code,
+    generate_architecture,
+    evolve_weights
+]
+
+for g in random.sample(generators, random.randint(3,6)):
+    g()
