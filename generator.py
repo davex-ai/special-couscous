@@ -263,7 +263,7 @@ def evolve_weights():
 
 
 # ---------- DASHBOARD ----------
-defdef update_dashboard():
+def update_dashboard():
 
     def count_lines(path, pattern=None):
         if not os.path.exists(path):
