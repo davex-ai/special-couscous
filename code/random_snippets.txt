@@ -28,3 +28,6 @@ print('chaos')
 
 # javascript
 console.log('chaos')
+
+# go
+fmt.Println("chaos")
