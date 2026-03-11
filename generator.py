@@ -269,9 +269,9 @@ def evolve_weights():
 
     except Exception:
         print("Reinitializing weights")
-        weights = np.random.randn(10,10)
+        weights = np.random.randn(20,20)
 
-    noise = np.random.normal(0,0.01,weights.shape)
+    noise = np.random.normal(0,0.1,weights.shape)
     weights += noise
 
     np.save(path, weights, allow_pickle=False)
@@ -289,8 +289,9 @@ def update_dashboard():
 
     if os.path.exists("ascii/art.txt"):
         with open("ascii/art.txt") as f:
-            blocks = f.read().split("#")
-            latest_ascii = blocks[-1] if blocks else ""
+            text = f.read().strip()
+            blocks = text.split("# ")
+            latest_ascii = blocks[-1] if len(blocks) > 1 else text
 
     def count_lines(path, pattern=None):
         if not os.path.exists(path):
@@ -360,7 +361,6 @@ An autonomous forge generating computer science artifacts.
 
 Last oracle cycle: **{now}**
 
-Last oracle cycle: **{now}**
 """
 
     with open("README.md","w") as f:
@@ -381,3 +381,5 @@ generators = [
 
 for g in random.sample(generators, random.randint(3,6)):
     g()
+
+update_dashboard()
