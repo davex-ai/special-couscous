@@ -10,3 +10,6 @@ print('chaos')
 
 # go
 fmt.Println("chaos")
+
+# javascript
+console.log('chaos')
