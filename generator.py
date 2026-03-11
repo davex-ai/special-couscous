@@ -131,13 +131,6 @@ def generate_ascii():
         f.write(f"\n# {now}\n")
         f.write(random.choice(ascii_shapes))
 
-latest_ascii = ""
-
-if os.path.exists("ascii/art.txt"):
-    with open("ascii/art.txt") as f:
-        blocks = f.read().split("#")
-        latest_ascii = blocks[-1] if blocks else ""
-
 def weight_heatmap():
 
     path = "neural_networks/weights.npy"
@@ -292,6 +285,12 @@ def evolve_weights():
 
 # ---------- DASHBOARD ----------
 def update_dashboard():
+    latest_ascii = ""
+
+    if os.path.exists("ascii/art.txt"):
+        with open("ascii/art.txt") as f:
+            blocks = f.read().split("#")
+            latest_ascii = blocks[-1] if blocks else ""
 
     def count_lines(path, pattern=None):
         if not os.path.exists(path):
@@ -336,6 +335,30 @@ An autonomous forge generating computer science artifacts.
 - Procedural artifact generator
 - Autonomous GitHub workflow
 - Neural weight evolution engine
+
+## 🎨 Latest ASCII Artifact
+
+
+{latest_ascii}
+
+
+---
+
+## 🧠 Neural Weight Heatmap
+
+
+{weight_heatmap()}
+
+
+---
+
+## ⚙️ System
+
+- Procedural artifact generator
+- Autonomous GitHub workflow
+- Neural weight evolution engine
+
+Last oracle cycle: **{now}**
 
 Last oracle cycle: **{now}**
 """
