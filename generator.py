@@ -263,29 +263,53 @@ def evolve_weights():
 
 
 # ---------- DASHBOARD ----------
-def update_dashboard():
+defdef update_dashboard():
 
-    algo_count = 0
-    if os.path.exists("algorithms/algorithms.py"):
-        with open("algorithms/algorithms.py") as f:
-            algo_count = f.read().count("def algo_")
+    def count_lines(path, pattern=None):
+        if not os.path.exists(path):
+            return 0
+        with open(path) as f:
+            text = f.read()
+        return text.count(pattern) if pattern else len(text.splitlines())
 
-    formula_count = 0
-    if os.path.exists("math/formulas.md"):
-        with open("math/formulas.md") as f:
-            formula_count = f.read().count("f(")
+    algo_count = count_lines("algorithms/algorithms.py", "def algo_")
+    formula_count = count_lines("math/formulas.md", "f(")
+    dataset_rows = count_lines("datasets/data.csv")
+    ascii_art = count_lines("ascii/art.txt", "#")
+    ascii_graphs = count_lines("ascii/graphs.txt", "#")
+    snippets = count_lines("code/random_snippets.txt", "#")
+    architectures = count_lines("neural_networks/architectures.json")
+    training_logs = count_lines("ml/training_logs.txt")
 
     dashboard = f"""
-# Procedural Computer Science
+# 🔥 Hephaestus Oracle
 
-Daily generated computer science artifacts.
+An autonomous forge generating computer science artifacts.
 
-## Stats
+---
 
-Algorithms generated: {algo_count}
-Math formulas generated: {formula_count}
+## 📊 Artifact Stats
 
-Last update: {now}
+| Artifact | Count |
+|--------|------|
+| Algorithms forged | {algo_count} |
+| Math formulas discovered | {formula_count} |
+| Dataset rows generated | {dataset_rows} |
+| ASCII artworks | {ascii_art} |
+| ASCII graphs | {ascii_graphs} |
+| Code snippets | {snippets} |
+| Neural architectures | {architectures} |
+| Training logs | {training_logs} |
+
+---
+
+## ⚙️ System
+
+- Procedural artifact generator
+- Autonomous GitHub workflow
+- Neural weight evolution engine
+
+Last oracle cycle: **{now}**
 """
 
     with open("README.md","w") as f:
