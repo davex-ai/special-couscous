@@ -18,10 +18,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
-      - name: Set up GitHub CLI auth
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+      - name: Authenticate gh
+        run: echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
 
       - name: Configure git
         run: |
@@ -49,10 +49,10 @@ jobs:
           echo "branch_name=auto/random-$NEXT" >> $GITHUB_OUTPUT
           echo "branch_num=$NEXT" >> $GITHUB_OUTPUT
 
-      - name: Commit counter update on main
+      - name: Commit counter update
         run: |
           git add .auto-branch-counter
-          git commit -m "chore: update auto branch counter" || echo "no counter changes"
+          git commit -m "chore: update auto branch counter" || echo "no changes"
           git push origin main
 
       - name: Create branch
@@ -82,4 +82,4 @@ jobs:
 
       - name: Merge PR and delete branch
         run: |
-          gh pr merge "${{ steps.counter.outputs.branch_name }}" --merge --delete-branch
+          gh pr merge "${{ steps.counter.outputs.branch_name }}" --squash --delete-branch
