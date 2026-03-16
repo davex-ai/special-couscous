@@ -61,3 +61,6 @@ console.log('chaos')
 
 # python
 print('chaos')
+
+# c++
+std::cout << "chaos";
