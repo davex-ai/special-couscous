@@ -58,3 +58,6 @@ console.log('chaos')
 
 # javascript
 console.log('chaos')
+
+# python
+print('chaos')
