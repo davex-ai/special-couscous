@@ -70,3 +70,6 @@ console.log('chaos')
 
 # rust
 println!("chaos");
+
+# c++
+std::cout << "chaos";
