@@ -88,3 +88,6 @@ std::cout << "chaos";
 
 # javascript
 console.log('chaos')
+
+# rust
+println!("chaos");
