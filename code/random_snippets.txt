@@ -94,3 +94,6 @@ println!("chaos");
 
 # go
 fmt.Println("chaos")
+
+# rust
+println!("chaos");
