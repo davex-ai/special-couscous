@@ -112,3 +112,6 @@ fmt.Println("chaos")
 
 # javascript
 console.log('chaos')
+
+# java
+System.out.println("chaos");
