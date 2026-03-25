@@ -127,3 +127,6 @@ fmt.Println("chaos")
 
 # python
 print('chaos')
+
+# java
+System.out.println("chaos");
