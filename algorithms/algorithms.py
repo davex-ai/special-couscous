@@ -454,3 +454,11 @@ def algo_14390(arr):
         if arr[i] % 2 == 0:
             result += arr[i]
     return result
+
+def algo_13090(arr):
+    """Random generated algorithm"""
+    result = 0
+    for i in range(len(arr)):
+        if arr[i] % 5 == 0:
+            result += arr[i]
+    return result
