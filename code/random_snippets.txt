@@ -196,3 +196,6 @@ println!("chaos");
 
 # rust
 println!("chaos");
+
+# java
+System.out.println("chaos");
