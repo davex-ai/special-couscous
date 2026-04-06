@@ -262,3 +262,6 @@ console.log('chaos')
 
 # c++
 std::cout << "chaos";
+
+# go
+fmt.Println("chaos")
