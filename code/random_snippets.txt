@@ -286,3 +286,6 @@ std::cout << "chaos";
 
 # rust
 println!("chaos");
+
+# go
+fmt.Println("chaos")
