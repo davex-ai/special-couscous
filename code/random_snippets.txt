@@ -289,3 +289,6 @@ println!("chaos");
 
 # go
 fmt.Println("chaos")
+
+# java
+System.out.println("chaos");
