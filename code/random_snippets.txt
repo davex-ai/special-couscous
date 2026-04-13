@@ -337,3 +337,6 @@ println!("chaos");
 
 # python
 print('chaos')
+
+# go
+fmt.Println("chaos")
