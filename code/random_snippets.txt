@@ -355,3 +355,6 @@ console.log('chaos')
 
 # java
 System.out.println("chaos");
+
+# javascript
+console.log('chaos')
