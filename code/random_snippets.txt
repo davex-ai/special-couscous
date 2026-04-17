@@ -391,3 +391,6 @@ std::cout << "chaos";
 
 # rust
 println!("chaos");
+
+# python
+print('chaos')
