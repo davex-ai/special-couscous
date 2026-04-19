@@ -409,3 +409,6 @@ fmt.Println("chaos")
 
 # javascript
 console.log('chaos')
+
+# c++
+std::cout << "chaos";

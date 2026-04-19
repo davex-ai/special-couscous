@@ -1070,3 +1070,11 @@ def algo_52347(arr):
         if arr[i] % 3 == 0:
             result += arr[i]
     return result
+
+def algo_50979(arr):
+    """Random generated algorithm"""
+    result = 0
+    for i in range(len(arr)):
+        if arr[i] % 3 == 0:
+            result += arr[i]
+    return result
